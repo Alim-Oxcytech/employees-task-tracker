@@ -20,7 +20,7 @@
     "dev:host": "vite --host"
   },
   "engines": {
-    "node": "20.x"
+    "node": "18.20.4"
   },
   "packageManager": "yarn@1.22.22",
   "dependencies": {
