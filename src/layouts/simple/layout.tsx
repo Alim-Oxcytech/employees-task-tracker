@@ -2,11 +2,8 @@ import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
-
+import { Typography } from '@mui/material';
 import { RouterLink } from 'src/routes/components';
-
-import { Logo } from 'src/components/logo';
-
 import { Main, CompactContent } from './main';
 import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
@@ -43,7 +40,11 @@ export function SimpleLayout({ sx, children, header, content }: SimpleLayoutProp
                 This is an info Alert.
               </Alert>
             ),
-            leftArea: <Logo />,
+            leftArea: (
+              <Typography component="div" variant="h5" color="#1877F2">
+                OxcyTracker
+              </Typography>
+            ),
             rightArea: (
               <Link
                 href="#"

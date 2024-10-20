@@ -12,41 +12,42 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { useRouter } from 'src/routes/hooks';
 
 import { Iconify } from 'src/components/iconify';
-import { WorkspacesPopover } from 'src/layouts/components/workspaces-popover';
-import { _workspaces } from 'src/layouts/config-nav-workspace';
 
 // ----------------------------------------------------------------------
 
-export function SignInView() {
+export function SignUpView() {
   const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSignIn = useCallback(() => {
-    router.push('/home');
+  const handleSignUp = useCallback(() => {
+    router.push('/');
   }, [router]);
 
   const renderForm = (
     <Box display="flex" flexDirection="column" alignItems="flex-end">
-      <WorkspacesPopover data={_workspaces} sx={{ mb: 3 }} />
+      <TextField
+        fullWidth
+        name="fullname"
+        label="Full name"
+        defaultValue="John Doe"
+        InputLabelProps={{ shrink: true }}
+        sx={{ mb: 3 }}
+      />
       <TextField
         fullWidth
         name="email"
         label="Email address"
-        defaultValue="john@gmail.com"
+        defaultValue="johndoe@gmail.com"
         InputLabelProps={{ shrink: true }}
         sx={{ mb: 3 }}
       />
-
-      <Link variant="body2" color="inherit" sx={{ mb: 1.5 }} href="/forgot-password">
-        Forgot password?
-      </Link>
 
       <TextField
         fullWidth
         name="password"
         label="Password"
-        defaultValue="Alim@123"
+        defaultValue="John@123"
         InputLabelProps={{ shrink: true }}
         type={showPassword ? 'text' : 'password'}
         InputProps={{
@@ -67,9 +68,9 @@ export function SignInView() {
         type="submit"
         color="inherit"
         variant="contained"
-        onClick={handleSignIn}
+        onClick={handleSignUp}
       >
-        Sign in
+        Sign up
       </LoadingButton>
     </Box>
   );
@@ -77,11 +78,11 @@ export function SignInView() {
   return (
     <>
       <Box gap={1.5} display="flex" flexDirection="column" alignItems="center" sx={{ mb: 5 }}>
-        <Typography variant="h5">Sign in</Typography>
+        <Typography variant="h5">Sign up</Typography>
         <Typography variant="body2" color="text.secondary">
-          Don’t have an account?
-          <Link variant="subtitle2" sx={{ ml: 0.5 }} href="/sign-up">
-            Get started
+          Already have an account?
+          <Link variant="subtitle2" sx={{ ml: 0.5 }} href="/sign-in">
+            Sign in
           </Link>
         </Typography>
       </Box>

@@ -14,6 +14,9 @@ export const HomePage = lazy(() => import('src/pages/home'));
 export const BlogPage = lazy(() => import('src/pages/blog'));
 export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
+export const SignUpPage = lazy(() => import('src/pages/sign-up'));
+export const ForgotPasswordPage = lazy(() => import('src/pages/forgot-password'));
+export const ResetPasswordPage = lazy(() => import('src/pages/reset-password'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 
@@ -35,6 +38,11 @@ const renderFallback = (
 export function Router() {
   return useRoutes([
     {
+      path: '/', // Set the root path
+      // Redirect to sign-in if the root path is accessed
+      element: <Navigate to="/sign-in" replace />,
+    },
+    {
       element: (
         <DashboardLayout>
           <Suspense fallback={renderFallback}>
@@ -43,7 +51,7 @@ export function Router() {
         </DashboardLayout>
       ),
       children: [
-        { element: <HomePage />, index: true },
+        { path: 'home', element: <HomePage /> }, // Add explicit path for HomePage
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
@@ -54,6 +62,31 @@ export function Router() {
       element: (
         <AuthLayout>
           <SignInPage />
+        </AuthLayout>
+      ),
+      index: true, // Ensures sign-in is the default route for '/'
+    },
+    {
+      path: 'sign-up',
+      element: (
+        <AuthLayout>
+          <SignUpPage />
+        </AuthLayout>
+      ),
+    },
+    {
+      path: 'forgot-password',
+      element: (
+        <AuthLayout>
+          <ForgotPasswordPage />
+        </AuthLayout>
+      ),
+    },
+    {
+      path: 'reset-password',
+      element: (
+        <AuthLayout>
+          <ResetPasswordPage />
         </AuthLayout>
       ),
     },

@@ -1,5 +1,5 @@
 {
-  "name": "employees-task-tracker",
+  "name": "OxcyTracker",
   "author": "alim mohammad",
   "licence": "Oxcytech",
   "version": "2.0.0",
@@ -20,7 +20,7 @@
     "dev:host": "vite --host"
   },
   "engines": {
-    "node": "18.20.4"
+    "node": "18.x"
   },
   "packageManager": "yarn@1.22.22",
   "dependencies": {

@@ -2,12 +2,10 @@ import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
-
+import Typography from '@mui/material/Typography';
 import { RouterLink } from 'src/routes/components';
 
 import { stylesMode } from 'src/theme/styles';
-
-import { Logo } from 'src/components/logo';
 
 import { Main } from './main';
 import { HeaderSection } from '../core/header-section';
@@ -49,7 +47,11 @@ export function AuthLayout({ sx, children, header }: AuthLayoutProps) {
                 This is an info Alert.
               </Alert>
             ),
-            leftArea: <Logo />,
+            leftArea: (
+              <Typography component="div" variant="h5" color="#1877F2">
+                OxcyTracker
+              </Typography>
+            ),
             rightArea: (
               <Link
                 component={RouterLink}
